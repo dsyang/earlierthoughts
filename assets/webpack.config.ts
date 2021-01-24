@@ -73,6 +73,7 @@ module.exports = (_env: any, options: { [key: string]: string }): Configuration 
                     use: [
                         MiniCssExtractPlugin.loader,
                         'css-loader',
+                        'postcss-loader',
                         'sass-loader',
                     ],
                 }
