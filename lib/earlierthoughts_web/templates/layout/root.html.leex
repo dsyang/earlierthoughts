@@ -9,23 +9,22 @@
     <link phx-track-static rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
     <script defer phx-track-static type="text/javascript" src="<%= Routes.static_path(@conn, "/js/startercode.js") %>"></script>
   </head>
-  <body>
-    <header>
-      <section class="container">
-        <nav role="navigation">
+  <body class = "bg-gray-100 flex flex-col items-center">
+    <header class="container">
+      <section class="md bg-white flex flex-row-reverse justify-center">
+        <nav role="navigation" class="flex flex-col justify-center">
           <ul>
-            <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
+            <li><a href="https://hexdocs.pm/phoenix/overview.html" class="font-medium text-indigo-600 hover:text-indigo-500">Get Started</a></li>
             <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
-              <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li>
+              <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home), class: "font-medium text-indigo-600 hover:text-indigo-500" %></li>
             <% end %>
           </ul>
         </nav>
-        <a href="https://phoenixframework.org/" class="phx-logo">
+        <a href="https://phoenixframework.org/" class="phx-logo mr-5">
           <img src="<%= Routes.static_path(@conn, "/images/phoenix.png") %>" alt="Phoenix Framework Logo"/>
         </a>
       </section>
     </header>
-    <h1 class="text-red-500 text-5xl font-bold text-center">Tailwind CSS</h1>
     <%= @inner_content %>
   </body>
 </html>

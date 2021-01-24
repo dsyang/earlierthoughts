@@ -1,47 +1,47 @@
-<section class="phx-hero">
-  <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
-  <p>Peace of mind from prototype to production</p>
+<section class="phx-hero mt-5 p-10 bg-gray-300 flex flex-col justify-center items-center">
+  <h1 class="text-4xl"><%= gettext "Welcome to %{name}!", name: "PETAL" %></h1>
+  <p class="p-1 text-lg text-center break-words">Phoenix, Elixir, Tailwindcss, Alpinejs, Liveview: Peace of mind from prototype to production</p>
 
-  <form phx-change="suggest" phx-submit="search" x-data="{text: ''}">
+  <form phx-change="suggest" phx-submit="search" x-data="{text: ''}" class="flex flex-col min-w-full">
     <input type="text" name="q" value="<%= @query %>" placeholder="Live dependency search" list="results" autocomplete="off" x-model="text"/>
     <datalist id="results">
       <%= for {app, _vsn} <- @results do %>
         <option value="<%= app %>"><%= app %></option>
       <% end %>
     </datalist>
-    <button type="submit" phx-disable-with="Searching..." x-show="text !== ''">Go to Hexdocs</button>
+    <button type="submit" phx-disable-with="Searching..." x-show="text !== ''" class="p-2 mt-5 text-white bg-indigo-500">Go to Hexdocs</button>
   </form>
 </section>
 
-<section class="row">
-  <article class="column">
-    <h2>Resources</h2>
+<section class="flex flex-row flex-grow place-content-between">
+  <article class="flex flex-col">
+    <h2 class="text-xl underline">Resources</h2>
     <ul>
       <li>
-        <a href="https://hexdocs.pm/phoenix/overview.html">Guides &amp; Docs</a>
+        <a href="https://hexdocs.pm/phoenix/overview.html" class="font-medium text-indigo-600 hover:text-indigo-500 hover:underline">Guides &amp; Docs</a>
       </li>
       <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
+        <a href="https://github.com/phoenixframework/phoenix" class="font-medium text-indigo-600 hover:text-indigo-500 hover:underline">Source</a>
       </li>
       <li>
-        <a href="https://github.com/phoenixframework/phoenix/blob/v1.5/CHANGELOG.md">v1.5 Changelog</a>
+        <a href="https://github.com/phoenixframework/phoenix/blob/v1.5/CHANGELOG.md" class="font-medium text-indigo-600 hover:text-indigo-500 hover:underline">v1.5 Changelog</a>
       </li>
     </ul>
   </article>
-  <article class="column">
-    <h2>Help</h2>
+  <article class="flex flex-col">
+    <h2 class="text-xl underline">Help</h2>
     <ul>
       <li>
-        <a href="https://elixirforum.com/c/phoenix-forum">Forum</a>
+        <a href="https://elixirforum.com/c/phoenix-forum" class="font-medium text-indigo-600 hover:text-indigo-500 hover:underline">Forum</a>
       </li>
       <li>
-        <a href="https://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on Freenode IRC</a>
+        <a href="https://webchat.freenode.net/?channels=elixir-lang" class="font-medium text-indigo-600 hover:text-indigo-500 hover:underline">#elixir-lang on Freenode IRC</a>
       </li>
       <li>
-        <a href="https://twitter.com/elixirphoenix">Twitter @elixirphoenix</a>
+        <a href="https://twitter.com/elixirphoenix" class="font-medium text-indigo-600 hover:text-indigo-500 hover:underline">Twitter @elixirphoenix</a>
       </li>
       <li>
-        <a href="https://elixir-slackin.herokuapp.com/">Elixir on Slack</a>
+        <a href="https://elixir-slackin.herokuapp.com/" class="font-medium text-indigo-600 hover:text-indigo-500 hover:underline">Elixir on Slack</a>
       </li>
     </ul>
   </article>
