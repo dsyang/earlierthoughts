@@ -1,0 +1,16 @@
+{
+    "extends": "@tsconfig/recommended/tsconfig.json",
+    "compilerOptions": {
+        "allowJs": true,
+        "jsx": "react",
+        "outDir": "../priv/static/js",
+        "strict": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true
+    },
+    "exclude": [
+        "/node_modules/**/*",
+    ]
+}

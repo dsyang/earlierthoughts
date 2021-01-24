@@ -1,0 +1,4 @@
+// tsconfig for webpack
+{
+    "extends": "@tsconfig/recommended/tsconfig.json"
+}
