@@ -13,6 +13,10 @@ config :earlierthoughts, EarlierthoughtsWeb.Endpoint,
   # a nil host lets me use multiple domain names: https://elixirforum.com/t/multiple-domains-in-phoenix/17141/6
   cache_static_manifest: "priv/static/cache_manifest.json"
 
+config :earlierthoughts, EarlierThoughts.Lists.ListProcess,
+  # 4 hours
+  push_delay_seconds: 3600 * 4
+
 # Do not print debug messages in production
 config :logger, level: :info
 

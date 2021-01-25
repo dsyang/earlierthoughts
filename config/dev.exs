@@ -27,6 +27,7 @@ config :earlierthoughts, EarlierthoughtsWeb.Endpoint,
     ]
   ]
 
+config :earlierthoughts, EarlierThoughts.Lists.ListProcess, push_delay_seconds: 60
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed
