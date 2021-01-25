@@ -46,7 +46,10 @@ defmodule Earlierthoughts.MixProject do
       {:telemetry_poller, "~> 0.4"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      # For sending push notifications,
+      {:firebase_cloud_messaging_http_v1_api, "~> 0.1.0"},
+      {:goth, "~> 1.2.0"}
     ]
   end
 

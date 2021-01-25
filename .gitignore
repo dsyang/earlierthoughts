@@ -29,3 +29,4 @@ earlierthoughts-*.tar
 
 # Storing secret keys here
 .env
+/priv/earlierthoughts-gcp-credentials.json

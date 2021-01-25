@@ -39,3 +39,9 @@ config :earlierthoughts, EarlierthoughtsWeb.Endpoint,
 #
 # Then you can assemble a release by calling `mix release`.
 # See `mix help release` for more information.
+
+# If this is gigalixir, this should probably be a env var like so:
+# config :goth, json: {:system, "GCP_CREDENTIALS"}
+
+config :goth,
+  json: "priv/earlierthoughts-gcp-credentials.json" |> File.read!()
