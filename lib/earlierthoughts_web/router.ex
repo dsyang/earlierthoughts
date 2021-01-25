@@ -14,7 +14,7 @@ defmodule EarlierthoughtsWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", EarlierthoughtsWeb do
+  scope "/startercode", EarlierthoughtsWeb do
     pipe_through :browser
 
     live "/", PageLive, :index

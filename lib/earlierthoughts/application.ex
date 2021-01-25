@@ -6,18 +6,19 @@ defmodule Earlierthoughts.Application do
   use Application
 
   def start(_type, _args) do
-    children = [
-      # Start the Ecto repository
-      Earlierthoughts.Repo,
-      # Start the Telemetry supervisor
-      EarlierthoughtsWeb.Telemetry,
-      # Start the PubSub system
-      {Phoenix.PubSub, name: Earlierthoughts.PubSub},
-      # Start the Endpoint (http/https)
-      EarlierthoughtsWeb.Endpoint
-      # Start a worker by calling: Earlierthoughts.Worker.start_link(arg)
-      # {Earlierthoughts.Worker, arg}
-    ]
+    children =
+      [
+        # Start the Ecto repository
+        Earlierthoughts.Repo,
+        # Start the Telemetry supervisor
+        EarlierthoughtsWeb.Telemetry,
+        # Start the PubSub system
+        {Phoenix.PubSub, name: Earlierthoughts.PubSub},
+        # Start the Endpoint (http/https)
+        EarlierthoughtsWeb.Endpoint
+        # Start a worker by calling: Earlierthoughts.Worker.start_link(arg)
+        # {Earlierthoughts.Worker, arg}
+      ] ++ EarlierThoughts.Lists.application_children()
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
