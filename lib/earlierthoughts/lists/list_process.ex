@@ -32,9 +32,6 @@ defmodule EarlierThoughts.Lists.ListProcess do
     {:ok, state}
   end
 
-  # handle_call(:new_thought) = append to thoughts, if scheduled_push exists, cancel and reschedule,
-
-  # handle_call(:push) = scheduled_push = nil, make push
   @impl true
   def handle_call(:read, _from, %State{} = state) do
     {:reply, state, state}
