@@ -50,22 +50,39 @@ defmodule EarlierThoughts.Lists.ListProcess do
           push_delay_seconds: delay_seconds
         } = state
       ) do
-    new_state = %{state | thoughts: [msg | thoughts]}
+    next_push = Process.send_after(self(), :push, delay_seconds * 1000)
+    new_state = %{state | thoughts: [msg | thoughts], scheduled_push: next_push}
     {:reply, new_state, new_state}
   end
 
   @impl true
-  def handle_call({:new_thought, msg}, _from, %State{
-        thoughts: thoughts,
-        scheduled_push: next_push,
-        push_delay_seconds: delay_seconds
-      }) do
+  def handle_call(
+        {:new_thought, msg},
+        _from,
+        %State{
+          thoughts: thoughts,
+          scheduled_push: next_push,
+          push_delay_seconds: delay_seconds
+        } = state
+      ) do
+    time_remaining = Process.cancel_timer(next_push)
+
+    Logger.notice("Old timer had #{time_remaining} ms left.")
+    new_push = Process.send_after(self(), :push, delay_seconds * 1000)
+    new_state = %{state | thoughts: [msg | thoughts], scheduled_push: new_push}
+    {:reply, new_state, new_state}
   end
 
   @impl true
-  def handle_call(:push, _from, %State{
-        thoughts: thoughts,
-        scheduled_push: next_push
-      }) do
+  def handle_info(
+        :push,
+        %State{
+          thoughts: thoughts,
+          scheduled_push: _next_push
+        } = state
+      ) do
+    new_state = %{state | scheduled_push: nil}
+    Logger.notice("Send a push token! here are the thoughts: #{thoughts}")
+    {:noreply, new_state}
   end
 end
