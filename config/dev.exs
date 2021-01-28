@@ -29,7 +29,7 @@ config :earlierthoughts, EarlierThoughtsWeb.Endpoint,
 
 config :earlierthoughts, EarlierThoughtsWeb.PageLive, enable_startercode_search: true
 
-config :earlierthoughts, EarlierThoughts.Lists.ListProcess, push_delay_seconds: 60
+config :earlierthoughts, EarlierThoughts.Lists.ListProcess, push_delay_seconds: 10
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed
