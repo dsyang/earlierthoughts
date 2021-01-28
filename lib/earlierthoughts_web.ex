@@ -1,12 +1,12 @@
-defmodule EarlierthoughtsWeb do
+defmodule EarlierThoughtsWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use EarlierthoughtsWeb, :controller
-      use EarlierthoughtsWeb, :view
+      use EarlierThoughtsWeb, :controller
+      use EarlierThoughtsWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,11 +19,11 @@ defmodule EarlierthoughtsWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: EarlierthoughtsWeb
+      use Phoenix.Controller, namespace: EarlierThoughtsWeb
 
       import Plug.Conn
-      import EarlierthoughtsWeb.Gettext
-      alias EarlierthoughtsWeb.Router.Helpers, as: Routes
+      import EarlierThoughtsWeb.Gettext
+      alias EarlierThoughtsWeb.Router.Helpers, as: Routes
     end
   end
 
@@ -31,7 +31,7 @@ defmodule EarlierthoughtsWeb do
     quote do
       use Phoenix.View,
         root: "lib/earlierthoughts_web/templates",
-        namespace: EarlierthoughtsWeb
+        namespace: EarlierThoughtsWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller,
@@ -45,7 +45,7 @@ defmodule EarlierthoughtsWeb do
   def live_view do
     quote do
       use Phoenix.LiveView,
-        layout: {EarlierthoughtsWeb.LayoutView, "live.html"}
+        layout: {EarlierThoughtsWeb.LayoutView, "live.html"}
 
       unquote(view_helpers())
     end
@@ -72,7 +72,7 @@ defmodule EarlierthoughtsWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import EarlierthoughtsWeb.Gettext
+      import EarlierThoughtsWeb.Gettext
     end
   end
 
@@ -87,9 +87,9 @@ defmodule EarlierthoughtsWeb do
       # Import basic rendering functionality (render, render_layout, etc)
       import Phoenix.View
 
-      import EarlierthoughtsWeb.ErrorHelpers
-      import EarlierthoughtsWeb.Gettext
-      alias EarlierthoughtsWeb.Router.Helpers, as: Routes
+      import EarlierThoughtsWeb.ErrorHelpers
+      import EarlierThoughtsWeb.Gettext
+      alias EarlierThoughtsWeb.Router.Helpers, as: Routes
     end
   end
 
@@ -97,6 +97,8 @@ defmodule EarlierthoughtsWeb do
   When used, dispatch to the appropriate controller/view/etc.
   """
   defmacro __using__(which) when is_atom(which) do
+    # coveralls-ignore-start
     apply(__MODULE__, which, [])
+    # coveralls-ignore-stop
   end
 end

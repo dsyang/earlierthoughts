@@ -1,27 +1,23 @@
-defmodule EarlierthoughtsWeb.Router do
-  use EarlierthoughtsWeb, :router
+defmodule EarlierThoughtsWeb.Router do
+  use EarlierThoughtsWeb, :router
 
   pipeline :browser do
-    plug :accepts, ["html"]
-    plug :fetch_session
-    plug :fetch_live_flash
-    plug :put_root_layout, {EarlierthoughtsWeb.LayoutView, :root}
-    plug :protect_from_forgery
-    plug :put_secure_browser_headers
+    plug(:accepts, ["html"])
+    plug(:fetch_session)
+    plug(:fetch_live_flash)
+    plug(:put_root_layout, {EarlierThoughtsWeb.LayoutView, :root})
+    plug(:protect_from_forgery)
+    plug(:put_secure_browser_headers)
   end
 
-  pipeline :api do
-    plug :accepts, ["json"]
-  end
+  scope "/startercode", EarlierThoughtsWeb do
+    pipe_through(:browser)
 
-  scope "/startercode", EarlierthoughtsWeb do
-    pipe_through :browser
-
-    live "/", PageLive, :index
+    live("/", PageLive, :index)
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", EarlierthoughtsWeb do
+  # scope "/api", EarlierThoughtsWeb do
   #   pipe_through :api
   # end
 
@@ -34,10 +30,12 @@ defmodule EarlierthoughtsWeb.Router do
   # as long as you are also using SSL (which you should anyway).
   if Mix.env() in [:dev, :test] do
     import Phoenix.LiveDashboard.Router
-
+    # coveralls-ignore-start
     scope "/" do
-      pipe_through :browser
-      live_dashboard "/dashboard", metrics: EarlierthoughtsWeb.Telemetry
+      pipe_through(:browser)
+      live_dashboard("/dashboard", metrics: EarlierThoughtsWeb.Telemetry)
     end
+
+    # coveralls-ignore-end
   end
 end

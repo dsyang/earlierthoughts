@@ -1,4 +1,4 @@
-defmodule Earlierthoughts.MixProject do
+defmodule EarlierThoughts.MixProject do
   use Mix.Project
 
   def project do
@@ -10,7 +10,14 @@ defmodule Earlierthoughts.MixProject do
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [
+        coveralls: :test,
+        "coveralls.detail": :test,
+        "coveralls.post": :test,
+        "coveralls.html": :test
+      ]
     ]
   end
 
@@ -19,7 +26,7 @@ defmodule Earlierthoughts.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {Earlierthoughts.Application, []},
+      mod: {EarlierThoughts.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
@@ -33,6 +40,8 @@ defmodule Earlierthoughts.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:mock, "~> 0.3.0", only: :test},
+      {:excoveralls, "~> 0.10", only: :test},
       {:phoenix, "~> 1.5.7"},
       {:phoenix_ecto, "~> 4.1"},
       {:ecto_sql, "~> 3.4"},

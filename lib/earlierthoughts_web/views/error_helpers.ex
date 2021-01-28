@@ -1,4 +1,4 @@
-defmodule EarlierthoughtsWeb.ErrorHelpers do
+defmodule EarlierThoughtsWeb.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
@@ -39,9 +39,9 @@ defmodule EarlierthoughtsWeb.ErrorHelpers do
     # should be written to the errors.po file. The :count option is
     # set by Ecto and indicates we should also apply plural rules.
     if count = opts[:count] do
-      Gettext.dngettext(EarlierthoughtsWeb.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(EarlierThoughtsWeb.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(EarlierthoughtsWeb.Gettext, "errors", msg, opts)
+      Gettext.dgettext(EarlierThoughtsWeb.Gettext, "errors", msg, opts)
     end
   end
 end

@@ -2,7 +2,7 @@
   <h1 class="text-4xl"><%= gettext "Welcome to %{name}!", name: "PETAL" %></h1>
   <p class="p-1 text-lg text-center break-words">Phoenix, Elixir, Tailwindcss, Alpinejs, Liveview: Peace of mind from prototype to production</p>
 
-  <form phx-change="suggest" phx-submit="search" x-data="{text: ''}" class="flex flex-col min-w-full">
+  <form id="livesearch" phx-change="suggest" phx-submit="search" x-data="{text: ''}" class="flex flex-col min-w-full">
     <input type="text" name="q" value="<%= @query %>" placeholder="Live dependency search" list="results" autocomplete="off" x-model="text"/>
     <datalist id="results">
       <%= for {app, _vsn} <- @results do %>

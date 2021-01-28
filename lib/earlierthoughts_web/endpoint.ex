@@ -1,4 +1,4 @@
-defmodule EarlierthoughtsWeb.Endpoint do
+defmodule EarlierThoughtsWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :earlierthoughts
 
   # The session will be stored in the cookie and signed,
@@ -10,7 +10,7 @@ defmodule EarlierthoughtsWeb.Endpoint do
     signing_salt: "zB/iJCrn"
   ]
 
-  socket "/socket", EarlierthoughtsWeb.UserSocket,
+  socket "/socket", EarlierThoughtsWeb.UserSocket,
     websocket: true,
     longpoll: false
 
@@ -50,5 +50,5 @@ defmodule EarlierthoughtsWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug EarlierthoughtsWeb.Router
+  plug EarlierThoughtsWeb.Router
 end

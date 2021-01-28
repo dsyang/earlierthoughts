@@ -10,14 +10,14 @@ use Mix.Config
 config :elixir, :time_zone_database, Tzdata.TimeZoneDatabase
 
 config :earlierthoughts,
-  ecto_repos: [Earlierthoughts.Repo]
+  ecto_repos: [EarlierThoughts.Repo]
 
 # Configures the endpoint
-config :earlierthoughts, EarlierthoughtsWeb.Endpoint,
+config :earlierthoughts, EarlierThoughtsWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "0kvr3IMuFXS9+FECv8UH1sf24deV0aJjq/QcyWksaq76rxGRoHQ+m9PFh80ooSFA",
-  render_errors: [view: EarlierthoughtsWeb.ErrorView, accepts: ~w(html json), layout: false],
-  pubsub_server: Earlierthoughts.PubSub,
+  render_errors: [view: EarlierThoughtsWeb.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: EarlierThoughts.PubSub,
   live_view: [signing_salt: "9waRRBmB"]
 
 # Configures Elixir's Logger

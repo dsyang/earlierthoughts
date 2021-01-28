@@ -1,3 +1,3 @@
-defmodule EarlierthoughtsWeb.LayoutView do
-  use EarlierthoughtsWeb, :view
+defmodule EarlierThoughtsWeb.LayoutView do
+  use EarlierThoughtsWeb, :view
 end

@@ -1,6 +1,6 @@
-defmodule Earlierthoughts do
+defmodule EarlierThoughts do
   @moduledoc """
-  Earlierthoughts keeps the contexts that define your domain
+  EarlierThoughts keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless

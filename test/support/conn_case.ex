@@ -1,4 +1,4 @@
-defmodule EarlierthoughtsWeb.ConnCase do
+defmodule EarlierThoughtsWeb.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -11,7 +11,7 @@ defmodule EarlierthoughtsWeb.ConnCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use EarlierthoughtsWeb.ConnCase, async: true`, although
+  by setting `use EarlierThoughtsWeb.ConnCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -22,20 +22,20 @@ defmodule EarlierthoughtsWeb.ConnCase do
       # Import conveniences for testing with connections
       import Plug.Conn
       import Phoenix.ConnTest
-      import EarlierthoughtsWeb.ConnCase
+      import EarlierThoughtsWeb.ConnCase
 
-      alias EarlierthoughtsWeb.Router.Helpers, as: Routes
+      alias EarlierThoughtsWeb.Router.Helpers, as: Routes
 
       # The default endpoint for testing
-      @endpoint EarlierthoughtsWeb.Endpoint
+      @endpoint EarlierThoughtsWeb.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Earlierthoughts.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(EarlierThoughts.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Earlierthoughts.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(EarlierThoughts.Repo, {:shared, self()})
     end
 
     {:ok, conn: Phoenix.ConnTest.build_conn()}

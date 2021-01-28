@@ -1,7 +1,7 @@
 use Mix.Config
 
 # Configure your database
-config :earlierthoughts, Earlierthoughts.Repo,
+config :earlierthoughts, EarlierThoughts.Repo,
   username: "dsyang",
   password: "dsyang",
   database: "earlierthoughts_dev",
@@ -15,7 +15,7 @@ config :earlierthoughts, Earlierthoughts.Repo,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
-config :earlierthoughts, EarlierthoughtsWeb.Endpoint,
+config :earlierthoughts, EarlierThoughtsWeb.Endpoint,
   http: [port: 4001],
   debug_errors: true,
   code_reloader: true,
@@ -26,6 +26,8 @@ config :earlierthoughts, EarlierthoughtsWeb.Endpoint,
       cd: Path.expand("../assets", __DIR__)
     ]
   ]
+
+config :earlierthoughts, EarlierThoughtsWeb.PageLive, enable_startercode_search: true
 
 config :earlierthoughts, EarlierThoughts.Lists.ListProcess, push_delay_seconds: 60
 # ## SSL Support
@@ -53,7 +55,7 @@ config :earlierthoughts, EarlierThoughts.Lists.ListProcess, push_delay_seconds: 
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :earlierthoughts, EarlierthoughtsWeb.Endpoint,
+config :earlierthoughts, EarlierThoughtsWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",

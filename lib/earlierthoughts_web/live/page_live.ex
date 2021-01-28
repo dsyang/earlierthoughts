@@ -1,5 +1,7 @@
-defmodule EarlierthoughtsWeb.PageLive do
-  use EarlierthoughtsWeb, :live_view
+defmodule EarlierThoughtsWeb.PageLive do
+  use EarlierThoughtsWeb, :live_view
+
+  @default_config [enable_startercode_search: false]
 
   @impl true
   def mount(_params, _session, socket) do
@@ -26,8 +28,13 @@ defmodule EarlierthoughtsWeb.PageLive do
   end
 
   defp search(query) do
-    if not EarlierthoughtsWeb.Endpoint.config(:code_reloader) do
+    [enable_startercode_search: enable_search] =
+      Application.get_env(:earlierthoughts, __MODULE__, @default_config)
+
+    if not enable_search do
+      # coveralls-ignore-start
       raise "action disabled when not in development"
+      # coveralls-ignore-end
     end
 
     for {app, desc, vsn} <- Application.started_applications(),

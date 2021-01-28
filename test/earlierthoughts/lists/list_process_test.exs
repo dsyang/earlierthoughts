@@ -1,7 +1,33 @@
-defmodule ListsTest do
+defmodule ListProcessTest do
   use ExUnit.Case
 
-  alias EarlierThoughts.Lists.ListProcess
+  alias EarlierThoughts.Lists
+  alias Lists.ListProcess
+  alias ListProcess.State
+
+  test "start link gets push delay from config" do
+    list_struct = %Lists.List{uuid: "something"}
+    {:ok, pid} = ListProcess.start_link(list_struct)
+    state = GenServer.call(pid, :read)
+    assert state.uuid == "something"
+    assert state.push_delay_seconds == 1
+  end
+
+  test "read call returns full state" do
+    identity_state = %State{
+      uuid: "anything",
+      thoughts: ["somethgin", "something else"]
+    }
+
+    {:reply, state, state} =
+      ListProcess.handle_call(
+        :read,
+        [],
+        identity_state
+      )
+
+    assert state == identity_state
+  end
 
   test "add thought schedules a push with expected delay" do
     {:reply, new_state, new_state} =

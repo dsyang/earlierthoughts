@@ -1,4 +1,4 @@
-defmodule EarlierthoughtsWeb.ChannelCase do
+defmodule EarlierThoughtsWeb.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -11,7 +11,7 @@ defmodule EarlierthoughtsWeb.ChannelCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use EarlierthoughtsWeb.ChannelCase, async: true`, although
+  by setting `use EarlierThoughtsWeb.ChannelCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -21,18 +21,18 @@ defmodule EarlierthoughtsWeb.ChannelCase do
     quote do
       # Import conveniences for testing with channels
       import Phoenix.ChannelTest
-      import EarlierthoughtsWeb.ChannelCase
+      import EarlierThoughtsWeb.ChannelCase
 
       # The default endpoint for testing
-      @endpoint EarlierthoughtsWeb.Endpoint
+      @endpoint EarlierThoughtsWeb.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Earlierthoughts.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(EarlierThoughts.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Earlierthoughts.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(EarlierThoughts.Repo, {:shared, self()})
     end
 
     :ok

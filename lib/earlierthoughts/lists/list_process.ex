@@ -9,7 +9,7 @@ defmodule EarlierThoughts.Lists.ListProcess do
     defstruct [:uuid, :thoughts, :scheduled_push, :push_delay_seconds]
   end
 
-  def start_link(%List{} = list) do
+  def start_link(%List{uuid: uuid}) do
     [push_delay_seconds: delay_for_push] =
       Application.get_env(:earlierthoughts, __MODULE__, @default_config)
 
@@ -18,12 +18,12 @@ defmodule EarlierThoughts.Lists.ListProcess do
     GenServer.start_link(
       __MODULE__,
       %State{
-        uuid: list.uuid,
+        uuid: uuid,
         thoughts: [],
         scheduled_push: nil,
         push_delay_seconds: delay_for_push
       },
-      name: {:via, Registry, {EarlierThoughts.Lists.Registry, list.uuid}}
+      name: {:via, Registry, {EarlierThoughts.Lists.Registry, uuid}}
     )
   end
 
