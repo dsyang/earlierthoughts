@@ -2,6 +2,8 @@
     "extends": "../../tsconfig.common.json",
     "include": [
         "*",
+        "../@types/process.d.ts",
+        "../firebase-config.ts",
     ],
     "compilerOptions": {
         "lib": [

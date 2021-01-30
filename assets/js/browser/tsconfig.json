@@ -3,6 +3,7 @@
     "include": [
         "*",
         "../@types/alpinejs/index.d.ts",
+        "../firebase-config.ts",
     ],
     "compilerOptions": {
         "lib": [
