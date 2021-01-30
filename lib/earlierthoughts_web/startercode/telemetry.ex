@@ -1,4 +1,4 @@
-defmodule EarlierThoughtsWeb.Telemetry do
+defmodule EarlierThoughtsWeb.StarterCode.Telemetry do
   use Supervisor
   import Telemetry.Metrics
 

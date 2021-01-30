@@ -19,7 +19,7 @@ config :earlierthoughts, EarlierThoughtsWeb.Endpoint,
   server: false
 
 # enablue this to test the startercode
-config :earlierthoughts, EarlierThoughtsWeb.PageLive, enable_startercode_search: true
+config :earlierthoughts, EarlierThoughtsWeb.StarterCode.PageLive, enable_startercode_search: true
 
 # Print only warnings and errors during test
 config :logger, level: :warn

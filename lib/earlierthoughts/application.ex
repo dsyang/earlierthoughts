@@ -11,7 +11,7 @@ defmodule EarlierThoughts.Application do
         # Start the Ecto repository
         EarlierThoughts.Repo,
         # Start the Telemetry supervisor
-        EarlierThoughtsWeb.Telemetry,
+        EarlierThoughtsWeb.StarterCode.Telemetry,
         # Start the PubSub system
         {Phoenix.PubSub, name: EarlierThoughts.PubSub},
         # Start the Endpoint (http/https)

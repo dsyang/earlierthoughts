@@ -1,4 +1,4 @@
-defmodule EarlierThoughtsWeb.PageLive do
+defmodule EarlierThoughtsWeb.StarterCode.PageLive do
   use EarlierThoughtsWeb, :live_view
 
   @default_config [enable_startercode_search: false]

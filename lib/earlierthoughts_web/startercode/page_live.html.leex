@@ -1,3 +1,18 @@
+<header class="container">
+  <section class="md bg-white flex flex-row-reverse justify-center">
+    <nav role="navigation" class="flex flex-col justify-center">
+      <ul>
+        <li><a href="https://hexdocs.pm/phoenix/overview.html" class="font-medium text-indigo-600 hover:text-indigo-500">Get Started</a></li>
+        <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
+          <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@socket, :home), class: "font-medium text-indigo-600 hover:text-indigo-500" %></li>
+        <% end %>
+      </ul>
+    </nav>
+    <a href="https://phoenixframework.org/" class="phx-logo mr-5">
+      <img src="<%= Routes.static_path(@socket, "/images/phoenix.png") %>" alt="Phoenix Framework Logo"/>
+    </a>
+  </section>
+</header>
 <section class="phx-hero mt-5 p-10 bg-gray-300 flex flex-col justify-center items-center">
   <h1 class="text-4xl"><%= gettext "Welcome to %{name}!", name: "PETAL" %></h1>
   <p class="p-1 text-lg text-center break-words">Phoenix, Elixir, Tailwindcss, Alpinejs, Liveview: Peace of mind from prototype to production</p>

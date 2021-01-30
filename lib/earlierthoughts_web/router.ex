@@ -10,7 +10,7 @@ defmodule EarlierThoughtsWeb.Router do
     plug(:put_secure_browser_headers)
   end
 
-  scope "/startercode", EarlierThoughtsWeb do
+  scope "/startercode", EarlierThoughtsWeb.StarterCode do
     pipe_through(:browser)
 
     live("/", PageLive, :index)
@@ -33,7 +33,7 @@ defmodule EarlierThoughtsWeb.Router do
     # coveralls-ignore-start
     scope "/" do
       pipe_through(:browser)
-      live_dashboard("/dashboard", metrics: EarlierThoughtsWeb.Telemetry)
+      live_dashboard("/dashboard", metrics: EarlierThoughtsWeb.StarterCode.Telemetry)
     end
 
     # coveralls-ignore-end

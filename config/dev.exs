@@ -27,7 +27,7 @@ config :earlierthoughts, EarlierThoughtsWeb.Endpoint,
     ]
   ]
 
-config :earlierthoughts, EarlierThoughtsWeb.PageLive, enable_startercode_search: true
+config :earlierthoughts, EarlierThoughtsWeb.StarterCode.PageLive, enable_startercode_search: true
 
 config :earlierthoughts, EarlierThoughts.Lists.ListProcess, push_delay_seconds: 10
 # ## SSL Support

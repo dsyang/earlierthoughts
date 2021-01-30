@@ -1,4 +1,4 @@
-defmodule EarlierThoughtsWeb.PageLiveTest do
+defmodule EarlierThoughtsWeb.StarterCode.PageLiveTest do
   use EarlierThoughtsWeb.ConnCase
 
   import Phoenix.LiveViewTest

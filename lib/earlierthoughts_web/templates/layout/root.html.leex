@@ -10,21 +10,6 @@
     <script defer phx-track-static type="text/javascript" src="<%= Routes.static_path(@conn, "/js/startercode.js") %>"></script>
   </head>
   <body class = "bg-gray-100 flex flex-col items-center">
-    <header class="container">
-      <section class="md bg-white flex flex-row-reverse justify-center">
-        <nav role="navigation" class="flex flex-col justify-center">
-          <ul>
-            <li><a href="https://hexdocs.pm/phoenix/overview.html" class="font-medium text-indigo-600 hover:text-indigo-500">Get Started</a></li>
-            <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
-              <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home), class: "font-medium text-indigo-600 hover:text-indigo-500" %></li>
-            <% end %>
-          </ul>
-        </nav>
-        <a href="https://phoenixframework.org/" class="phx-logo mr-5">
-          <img src="<%= Routes.static_path(@conn, "/images/phoenix.png") %>" alt="Phoenix Framework Logo"/>
-        </a>
-      </section>
-    </header>
     <%= @inner_content %>
   </body>
 </html>
