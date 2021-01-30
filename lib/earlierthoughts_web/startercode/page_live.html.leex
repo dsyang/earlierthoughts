@@ -2,9 +2,9 @@
   <section class="md bg-white flex flex-row-reverse justify-center">
     <nav role="navigation" class="flex flex-col justify-center">
       <ul>
-        <li><a href="https://hexdocs.pm/phoenix/overview.html" class="font-medium text-indigo-600 hover:text-indigo-500">Get Started</a></li>
+        <li><a href="https://hexdocs.pm/phoenix/overview.html" class="<%= @style.link %>">Get Started</a></li>
         <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
-          <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@socket, :home), class: "font-medium text-indigo-600 hover:text-indigo-500" %></li>
+          <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@socket, :home), class: @style.link %></li>
         <% end %>
       </ul>
     </nav>
@@ -24,7 +24,7 @@
         <option value="<%= app %>"><%= app %></option>
       <% end %>
     </datalist>
-    <button type="submit" phx-disable-with="Searching..." x-show="text !== ''" class="p-2 mt-5 text-white bg-indigo-500">Go to Hexdocs</button>
+    <button type="submit" phx-disable-with="Searching..." x-show="text !== ''" class="<%= @style.button %>">Go to Hexdocs</button>
   </form>
 </section>
 
@@ -33,30 +33,30 @@
     <h2 class="text-xl underline">Resources</h2>
     <ul>
       <li>
-        <a href="https://hexdocs.pm/phoenix/overview.html" class="font-medium text-indigo-600 hover:text-indigo-500 hover:underline">Guides &amp; Docs</a>
+        <a href="https://hexdocs.pm/phoenix/overview.html" class="<%= @style.link %>">Guides &amp; Docs</a>
       </li>
       <li>
-        <a href="https://github.com/phoenixframework/phoenix" class="font-medium text-indigo-600 hover:text-indigo-500 hover:underline">Source</a>
+        <a href="https://github.com/phoenixframework/phoenix" class="<%= @style.link %>">Source</a>
       </li>
       <li>
-        <a href="https://github.com/phoenixframework/phoenix/blob/v1.5/CHANGELOG.md" class="font-medium text-indigo-600 hover:text-indigo-500 hover:underline">v1.5 Changelog</a>
+        <a href="https://github.com/phoenixframework/phoenix/blob/v1.5/CHANGELOG.md" class="<%= @style.link %>">v1.5 Changelog</a>
       </li>
     </ul>
   </article>
   <article class="flex flex-col">
-    <h2 class="text-xl underline">Help</h2>
+    <h2 class="">Help</h2>
     <ul>
       <li>
-        <a href="https://elixirforum.com/c/phoenix-forum" class="font-medium text-indigo-600 hover:text-indigo-500 hover:underline">Forum</a>
+        <a href="https://elixirforum.com/c/phoenix-forum" class="<%= @style.link %>">Forum</a>
       </li>
       <li>
-        <a href="https://webchat.freenode.net/?channels=elixir-lang" class="font-medium text-indigo-600 hover:text-indigo-500 hover:underline">#elixir-lang on Freenode IRC</a>
+        <a href="https://webchat.freenode.net/?channels=elixir-lang" class="<%= @style.link %>">#elixir-lang on Freenode IRC</a>
       </li>
       <li>
-        <a href="https://twitter.com/elixirphoenix" class="font-medium text-indigo-600 hover:text-indigo-500 hover:underline">Twitter @elixirphoenix</a>
+        <a href="https://twitter.com/elixirphoenix" class="<%= @style.link %>">Twitter @elixirphoenix</a>
       </li>
       <li>
-        <a href="https://elixir-slackin.herokuapp.com/" class="font-medium text-indigo-600 hover:text-indigo-500 hover:underline">Elixir on Slack</a>
+        <a href="https://elixir-slackin.herokuapp.com/" class="<%= @style.link %>">Elixir on Slack</a>
       </li>
     </ul>
   </article>

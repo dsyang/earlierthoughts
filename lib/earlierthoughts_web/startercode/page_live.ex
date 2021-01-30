@@ -3,9 +3,15 @@ defmodule EarlierThoughtsWeb.StarterCode.PageLive do
 
   @default_config [enable_startercode_search: false]
 
+  @styling %{
+    button: "p-2 mt-5 text-white bg-indigo-500",
+    link: "font-medium text-indigo-600 hover:text-indigo-500 hover:underline",
+    h2: "text-xl underline"
+  }
+
   @impl true
   def mount(_params, _session, socket) do
-    {:ok, assign(socket, query: "", results: %{})}
+    {:ok, assign(socket, query: "", results: %{}, style: @styling)}
   end
 
   @impl true
