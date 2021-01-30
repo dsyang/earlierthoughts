@@ -10,6 +10,12 @@ defmodule EarlierThoughtsWeb.Router do
     plug(:put_secure_browser_headers)
   end
 
+  scope "/", EarlierThoughtsWeb do
+    pipe_through(:browser)
+
+    live("/", ListViewLive, :index)
+  end
+
   scope "/startercode", EarlierThoughtsWeb.StarterCode do
     pipe_through(:browser)
 
