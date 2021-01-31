@@ -56,6 +56,7 @@ defmodule EarlierThoughts.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
+      {:tzdata, "~> 1.1"},
       # For sending push notifications,
       {:firebase_cloud_messaging_http_v1_api, "~> 0.1.0"},
       {:goth, "~> 1.2.0"}
@@ -73,7 +74,8 @@ defmodule EarlierThoughts.MixProject do
       setup: ["deps.get", "ecto.setup", "cmd yarn --cwd assets"],
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
-      test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"]
+      test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
+      coverage: ["coveralls.html"]
     ]
   end
 end
