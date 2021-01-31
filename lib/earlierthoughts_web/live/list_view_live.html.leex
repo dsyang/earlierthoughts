@@ -3,5 +3,24 @@
     <p class="<%= @style.p %>"> A Small list of things to be reminded of 4 hours later </p>
 </header>
 <section>
+  <form id="addthought" phx-submit="addthought" x-data="{text: ''}" class="flex flex-col min-w-full">
+    <input type="text" name="q" value="" placeholder="A thought" autocomplete="off" x-model="text"/>
+    <button type="submit" phx-disable-with="Storing thought..." class="<%= @style.button %>" x-show="text !== ''"">
+        Enable push and add thought.</button>
+    <pre class="<%= @style.p %>" x-show="text !== ''">
+      - On load, check if push is is enabled
+        `switch (Notification.permission): "granted"|"default"|"denied"`
+         - if `granted`, button is called "add thought", set push token in hidden form field
+              `register serviceworker, call firebase.messaging.getToken, set as hidden form value. #form.submit`
 
+         - if `default`, button is called "enable push and add thought":
+            - on click, highjack submit to as for push permissions.
+              `register serviceworker, call firebase.messaging.getToken, set as hiddle form value. #form.submit`
+              - if accept, set push token in hidden form field and push
+              - if not, fire non-submit event and set flash error
+                  `catch(reason.toString.includes("permission-blocked")`
+                  `hook.pushEvent(). do not call #form.submit`
+    </pre>
+
+  </form>
 </section>
