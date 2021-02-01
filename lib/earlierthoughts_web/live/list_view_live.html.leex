@@ -3,10 +3,22 @@
     <p class="<%= @style.p %>"> A Small list of things to be reminded of 4 hours later </p>
 </header>
 <section>
-  <form id="addthought" phx-submit="addthought" x-data="{text: ''}" class="flex flex-col min-w-full">
+  <form
+    id="addthought"
+    phx-submit="add_thought"
+    x-data="listViewForm()"
+    x-init="on_init()"
+    class="flex flex-col min-w-full">
     <input type="text" name="q" value="" placeholder="A thought" autocomplete="off" x-model="text"/>
-    <button type="submit" phx-disable-with="Storing thought..." class="<%= @style.button %>" x-show="text !== ''"">
+    <input type="hidden" name="push token" x-model:value="push_token" />
+
+    <!-- Different submit buttons depending on push permission status -->
+    <button type="submit" phx-disable-with="Saving thought..." class="<%= @style.button %>" x-show="isPushUnknown()">
         Enable push and add thought.</button>
+    <button type="submit" phx-disable-with="Saving thought..." class="<%= @style.button %>" x-show="isPushGranted()">Save Thought.</button>
+    <button type="submit" disabled class="<%= @style.button %>" x-show="isPushDenied()"> Push notifications are blocked for this device. </button>
+
+
     <pre class="<%= @style.p %>" x-show="text !== ''">
       - On load, check if push is is enabled
         `switch (Notification.permission): "granted"|"default"|"denied"`
