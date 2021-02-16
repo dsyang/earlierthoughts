@@ -6,18 +6,35 @@
   <form
     id="addthought"
     phx-submit="add_thought"
-    x-data="listViewForm()"
+    x-data="listViewForm($el)"
     x-init="on_init()"
     class="flex flex-col min-w-full">
     <input type="text" name="q" value="" placeholder="A thought" autocomplete="off" x-model="text"/>
     <input type="hidden" name="push token" x-model:value="push_token" />
 
     <!-- Different submit buttons depending on push permission status -->
-    <button type="submit" phx-disable-with="Saving thought..." class="<%= @style.button %>" x-show="isPushUnknown()">
+    <button type="submit"
+            phx-disable-with="Saving thought..."
+            class="<%= @style.button %>"
+            x-show="isPushUnknown()"
+            @click.prevent="
+              enablePush()
+                .then((token) => { push_token = token; console.log('push_set')})
+                .catch((reason) => console.error(reason))
+                .finally(() => {
+                  $nextTick(() => { console.log('nexttyck'); form.dispatchEvent( new Event('submit', {bubbles: true}));})
+                })">
         Enable push and add thought.</button>
-    <button type="submit" phx-disable-with="Saving thought..." class="<%= @style.button %>" x-show="isPushGranted()">Save Thought.</button>
-    <button type="submit" disabled class="<%= @style.button %>" x-show="isPushDenied()"> Push notifications are blocked for this device. </button>
-
+    <button type="submit"
+            phx-disable-with="Saving thought..."
+            class="<%= @style.button %>"
+            x-show="push_permission_status == 'granted'">
+        Save Thought.</button>
+    <button type="submit"
+            disabled
+            class="<%= @style.button_disabled %>"
+            x-show="push_permission_status == 'denied'">
+        Push notifications are blocked for this device. </button>
 
     <pre class="<%= @style.p %>" x-show="text !== ''">
       - On load, check if push is is enabled

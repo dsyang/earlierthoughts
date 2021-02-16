@@ -4,7 +4,8 @@ defmodule EarlierThoughtsWeb.ListViewLive do
   @styling %{
     h1: "text-xxl underline",
     p: "text-l m-5",
-    button: "p-2 mt-5 text-white bg-indigo-500"
+    button: "p-2 mt-5 text-white bg-indigo-500",
+    button_disabled: "p-2 mt-5 text-white bg-indigo-300",
   }
 
   @impl true

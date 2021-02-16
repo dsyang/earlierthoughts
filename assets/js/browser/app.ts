@@ -5,6 +5,8 @@ import { Socket } from "phoenix"
 import NProgress from "nprogress"
 import { LiveSocket } from "phoenix_live_view"
 import ListViewForm from "./list_view_form_component"
+import { configs } from "../firebase-config";
+import firebase from "firebase";
 
 let csrfToken = document.querySelector("meta[name='csrf-token']")?.getAttribute("content")
 let liveSocket = new LiveSocket(
@@ -39,3 +41,5 @@ liveSocket.connect();
 // >> liveSocket.enableLatencySim(1000)  // enabled for duration of browser session
 // >> liveSocket.disableLatencySim()
 (window as any).liveSocket = liveSocket
+
+firebase.initializeApp(configs.firebaseConfig)
